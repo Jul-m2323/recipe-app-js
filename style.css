@@ -64,8 +64,25 @@ header button{
 }
 
 .fav-meals li{
+    position: relative;
+    cursor: pointer;
     width: 80px;
     margin: 5px;
+}
+
+.fav-meals li .clear{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: -0.5rem;
+    left: -0.5rem;
+    font-size: 1rem;
+}
+
+.fav-meals li:hover .clear{
+    opacity: 1;
 }
 
 .fav-meals li img{
@@ -73,17 +90,24 @@ header button{
     border-radius: 50%;
     box-shadow: 0 0 10px 2px #3333331a;
     object-fit: cover;
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
 }
 
 .fav-meals li span{
     font-size: 0.9rem;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 75px;
 }
+
 
 .meal{
     border-radius: 3px;
     box-shadow: 0 0 10px 2px #3333331a;
+    cursor: pointer;
     margin: 1.5rem;    
     overflow: hidden;
 }
@@ -107,18 +131,18 @@ header button{
     width: 100%;
 }
 
-.meal-info{
+.meal-body{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
 }
 
-.meal-info h4{
+.meal-body h4{
     margin: 0;
 }
 
-.meal-info .fav-btn{
+.meal-body .fav-btn{
     border: none;
     background-color: transparent;
     color: rgb(187, 187, 187);
@@ -126,6 +150,50 @@ header button{
     font-size: 1.2rem;
 }
 
-.meal-info .fav-btn.active{
+.meal-body .fav-btn.active{
     color: #a62fd4;
 }
+
+.popup-container{
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.popup-container.hidden{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.popup {
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 0 2rem;
+    position: relative;
+    overflow: auto;
+    max-height: 100vh ;
+    max-width: 800px;
+    width: 100%;
+}
+
+.popup .close-popup{
+    background-color: transparent;
+    border: none; 
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    top : 1rem;
+    right: 1rem;
+}
+
+
+.meal-info h1{
+    text-align: center;
+}
+
